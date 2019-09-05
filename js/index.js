@@ -47,3 +47,38 @@ navItems.forEach(function (item) {
   item.textContent = siteContent["nav"][`nav-item-${count}`];
   count += 1;
 })
+
+let pageHeader = document.querySelector(".cta-text h1");
+pageHeader.textContent = siteContent["cta"]["h1"];
+
+let ctaButton = document.querySelector(".cta-text button");
+ctaButton.textContent = siteContent["cta"]["button"];
+
+let ctaImage = document.getElementById("cta-img");
+ctaImage.setAttribute('src', siteContent["cta"]["img-src"]);
+
+let mainContent = document.querySelectorAll('.main-content h4, .main-content p');
+console.log(mainContent);
+let count2 = 0;
+let values = Object.values(siteContent["main-content"]);
+mainContent.forEach(function (item) {
+  if (values[count2].includes('img')) {
+    count2 += 1;
+  }
+  item.textContent = values[count2];
+  count2 += 1;
+})
+
+let middleImage = document.getElementById("middle-img");
+middleImage.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+let contact = document.querySelectorAll(".contact h4, .contact p");
+let count3 = 0;
+let values2 = Object.values(siteContent["contact"]);
+contact.forEach(function (item) {
+  item.textContent = values2[count3];
+  count3 += 1;
+})
+
+let footer = document.querySelector("footer p");
+footer.textContent = siteContent["footer"]["copyright"];
