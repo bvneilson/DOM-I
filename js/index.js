@@ -1,11 +1,13 @@
 const siteContent = {
   "nav": {
+    "nav-item-0": "New Beginning",
     "nav-item-1": "Services",
     "nav-item-2": "Product",
     "nav-item-3": "Vision",
     "nav-item-4": "Features",
     "nav-item-5": "About",
     "nav-item-6": "Contact",
+    "nav-item-7": "New End",
     "img-src": "img/logo.png"
   },
   "cta": {
@@ -41,12 +43,19 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
+let newNavItem = document.createElement("a");
+let newNavItem2 = document.createElement("a");
+newNavItem.setAttribute('href', '#');
+newNavItem2.setAttribute('href', '#');
+document.querySelector('nav').prepend(newNavItem);
+document.querySelector('nav').appendChild(newNavItem2);
 let navItems = document.querySelectorAll('nav a');
-let count = 1;
+let count = 0;
 navItems.forEach(function (item) {
   item.textContent = siteContent["nav"][`nav-item-${count}`];
+  item.style.color = 'green';
   count += 1;
-})
+});
 
 let pageHeader = document.querySelector(".cta-text h1");
 pageHeader.textContent = siteContent["cta"]["h1"];
